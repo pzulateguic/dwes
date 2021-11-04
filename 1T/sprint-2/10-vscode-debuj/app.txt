@@ -1,0 +1,10 @@
+function saludo() {
+    const array = ['Hola', 'como', 'estás', '?', ':)'];
+    
+    for (let i = 0; i < array.length; i++) {
+        const word = array[i];
+        console.log(word);
+    }
+}
+
+module.exports = saludo;
