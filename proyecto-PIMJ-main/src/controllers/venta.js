@@ -1,8 +1,7 @@
 const Venta = require("../models/venta");
 
-// listado de todos los datos
+// listado
 function listall(req, res) {
-  // paginación y limit datos de 10 en 10
   const { page = 1, limit = 10 } = req.query;
   Venta.find({})
     .limit(limit * 1)
@@ -14,16 +13,16 @@ function listall(req, res) {
     .catch((err) => res.status(500).send({ err }));
 }
 
-// creación de datos
+// creación
 function create(req, res) {
-  let venta = new venta(req.body);
+  let venta = new Venta(req.body);
   venta
     .save()
     .then((venta) => res.status(201).send({ venta }))
     .catch((err) => res.status(500).send({ err }));
 }
 
-// validador de búsqueda
+// búsqueda
 function show(req, res) {
   if (req.body.error) return res.status(500).send({ error });
   if (!req.body.venta) return res.status(404).send({ message: "Not Found" });
@@ -31,7 +30,7 @@ function show(req, res) {
   return res.status(200).send({ ventas });
 }
 
-// actualizar datos
+// actualizar
 function update(req, res) {
   if (req.body.error) return res.status(500).send({ error });
   if (!req.body.ventas) return res.status(404).send({ message: "Not Found" });
@@ -45,7 +44,7 @@ function update(req, res) {
     .catch((err) => res.status(500).send({ err }));
 }
 
-// borrar datos
+// borrar
 function deleted(req, res) {
   if (req.body.error) return res.status(500).send({ error });
   if (!req.body.ventas) return res.status(404).send({ message: "Not Found" });
@@ -57,7 +56,7 @@ function deleted(req, res) {
     .catch((err) => res.status(500).send({ err }));
 }
 
-// buscador de datos por query
+// buscador por query
 function find(req, res, next) {
   let query = {};
   query[req.params.key] = req.params.value;

@@ -1,7 +1,5 @@
-// importación de mongoose
 const mongoose = require("mongoose");
 
-// Schema de venta
 const venta = new mongoose.Schema({
   identificator: {
     required: true,
@@ -12,7 +10,7 @@ const venta = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Cliente",
   },
-  productos: [
+  producto: [
     {
       default: null,
       type: mongoose.Schema.Types.ObjectId,
@@ -25,5 +23,5 @@ const venta = new mongoose.Schema({
   },
 });
 
-const Venta = mongoose.model("Venta", venta);
+const Venta = mongoose.model("Sale", venta);
 module.exports = Venta;

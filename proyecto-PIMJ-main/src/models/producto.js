@@ -1,7 +1,5 @@
-// importación de mongoose
 const mongoose = require("mongoose");
 
-// Schema de producto
 const producto = new mongoose.Schema({
   identificator: {
     required: true,
@@ -11,7 +9,7 @@ const producto = new mongoose.Schema({
     required: true,
     type: "String",
   },
-  talla: {
+  tipo: {
     required: true,
     type: "String",
   },
@@ -26,5 +24,5 @@ const producto = new mongoose.Schema({
   },
 });
 
-const Producto = mongoose.model("Producto", producto);
+const Producto = mongoose.model("Product", producto);
 module.exports = Producto;

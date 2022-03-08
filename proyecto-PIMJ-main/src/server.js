@@ -1,5 +1,5 @@
-const Database = require('./config/database');
 const CONFIG = require('./config/config');
+const Database = require('./config/database');
 const app = require('./index');
 
 Database.connect();
